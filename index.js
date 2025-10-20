@@ -13,10 +13,14 @@ const {setData, getData} = require('./tools/data');
 
 // Middleware para parsear JSON
 app.use(express.json()); 
+// View engine
+app.set("view engine","ejs");
+// Static directories
+app.use('/static', express.static(__dirname +'/static'));
 
 // Home
 app.get('/', (req, res) => {
-    res.send('Welcome to the Water API');
+    res.render('home');
 });
 
 // ------------------------------------------------------------------
